@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //Randomly pick computer's choice
+            //Create array of computer's choices
+            let options = [`rock`, `paper`, `scissors`]
+            //Pick one at random and save it @ computerPlay
+            let computerSelection 
+            function computerPlay() {
+                let random = Math.floor(Math.random() * options.length)
+                computerSelection = options[random]
+            }
+        
+            //Saves user's input
+            let playerSelection
+            let playerSelectionOG
+            
+            function userSelect() {
+                playerSelectionOG = prompt(`What are you gonna play?`)
+                //turn input into lowercase
+                playerSelection = playerSelectionOG.toLowerCase()
+            }
+
+        //Get user's input of choice & Check who wins and announce it
+            //Create function that:
+            function checkResults (playerSelection, computerSelection) {
+                if ((playerSelection === `rock` && computerSelection === `scissors`) || (playerSelection === `scissors` && computerSelection === `paper`) || (playerSelection === `paper` && computerSelection === `rock`)) {
+                    return `You won!`
+                } else if (playerSelection === computerSelection) {
+                    return `It's a draw`
+                } else {
+                    return `You've lost`
+                }
+                
+            }
+
+
+            function game() {
+                computerPlay()
+                userSelect()
+                checkResults    ()
+                console.log(checkResults())
+            }
+
+            game()
+            
+            //Check who wins
+                //Rock > Scissors
+                //Scissors > Paper
+                //Paper > Rock
+            //Announce winner
+        
+    </script>
+</body>
+</html>
